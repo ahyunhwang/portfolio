@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+  <title>Everyday Play Infrastructure in Hudson Square — AHYUN HWANG</title>
+
+<style>
+:root{--lavender:#D8D8F6;--violet:#B18FCF;--rose:#978897;--gray:#494850;--black:#2C2C34;--paper:#F7F6F4;--white:#fff;--line:rgba(44,44,52,.22)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--black);font-family:"Inter",sans-serif;font-synthesis:none;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit;text-decoration:none}.wrap{width:min(calc(100% - 48px),1240px);margin:auto}
+header{position:sticky;top:0;z-index:10;background:rgba(247,246,244,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.header-inner{height:72px;display:flex;align-items:center;justify-content:space-between}.brand{font-size:14px;letter-spacing:.08em;text-transform:uppercase}
+.back{font-size:13px;padding-bottom:4px;border-bottom:1px solid var(--line)}
+.hero{padding:90px 0 50px}.kicker{color:var(--rose);font-size:11px;text-transform:uppercase;letter-spacing:.14em}
+h1{margin:18px 0 24px;font-size:clamp(54px,8vw,110px);line-height:.9;font-weight:200;letter-spacing:-.055em}
+.lead{max-width:760px;font-size:20px;line-height:1.5;color:var(--gray);font-weight:300}
+.cover-pair{display:flex;flex-direction:column;gap:clamp(42px,7vw,88px);padding-top:12px}.cover-pair figure{margin:0;min-width:0}.cover-pair figure:first-child{width:96%;align-self:flex-start}.cover-pair figure:last-child{width:86%;align-self:flex-end}.cover-pair img{display:block;width:100%;height:auto}.board-caption{display:flex;justify-content:space-between;gap:24px;margin-top:12px;padding-top:10px;border-top:1px solid var(--line);color:var(--rose);font-size:10px;text-transform:uppercase;letter-spacing:.13em}.reveal-ready .board-reveal{opacity:0;transition:opacity .8s ease,transform .9s cubic-bezier(.2,.7,.2,1)}.reveal-ready .board-reveal:first-child{transform:translate3d(-28px,28px,0)}.reveal-ready .board-reveal:last-child{transform:translate3d(28px,28px,0)}.reveal-ready .board-reveal.is-visible{opacity:1;transform:translate3d(0,0,0)}
+.content{width:min(calc(100% - 48px),1240px);margin:auto;padding:78px 0;border-bottom:1px solid var(--line)}
+.label{color:var(--rose);font-size:11px;text-transform:uppercase;letter-spacing:.13em}
+.content h2{margin:0 0 22px;font-size:38px;font-weight:200;letter-spacing:-.035em}
+.content p{max-width:760px;font-size:16px;line-height:1.7;color:var(--gray)}
+.process-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:34px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.process-card{min-width:0;padding:28px clamp(18px,2.3vw,30px) 34px;border-left:1px solid var(--line)}.process-card:first-child{border-left:0}
+.process-number{color:var(--rose);font-size:11px;letter-spacing:.14em}.process-visual{height:178px;margin:26px 0 28px;display:flex;align-items:center}.process-visual svg{display:block;width:100%;height:100%;overflow:visible}
+.process-card h3{margin:0 0 14px;font-size:clamp(22px,2.15vw,30px);line-height:1.08;font-weight:250;letter-spacing:-.035em}.process-card p{margin:0;max-width:none;font-size:14px;line-height:1.6;color:var(--gray)}
+.process-note{display:block;margin-top:14px;padding-top:12px;border-top:1px solid var(--line);color:var(--rose);font-size:10px;line-height:1.5;letter-spacing:.04em}
+.diagram-line{stroke:var(--rose);stroke-width:1;fill:none}.diagram-line.muted{stroke:rgba(73,72,80,.42)}.diagram-line.broken{stroke-dasharray:4 5}.diagram-node{fill:var(--paper);stroke:var(--rose);stroke-width:1}.diagram-fill{fill:var(--lavender)}.diagram-accent{fill:var(--violet)}.diagram-text{fill:var(--gray);font-family:"Inter",sans-serif;font-size:10px}.diagram-small{fill:var(--rose);font-family:"Inter",sans-serif;font-size:9px;letter-spacing:.04em}.diagram-value{fill:var(--black);font-family:"Inter",sans-serif;font-size:13px;font-weight:400}
+.diagram-text.light{fill:var(--white)}
+.project-nav{display:flex;justify-content:space-between;gap:30px;padding:48px 0 80px;font-size:13px}
+@media(max-width:900px){.process-grid{grid-template-columns:1fr}.process-card,.process-card:first-child{display:grid;grid-template-columns:minmax(180px,.75fr) minmax(0,1.25fr);column-gap:30px;padding:30px 0;border-left:0;border-top:1px solid var(--line)}.process-card:first-child{border-top:0}.process-number{grid-column:1/-1}.process-visual{grid-column:1;grid-row:2/5;margin:22px 0 0}.process-card h3{grid-column:2;margin-top:22px}.process-card p,.process-note{grid-column:2}}
+@media(max-width:720px){.wrap,.content{width:calc(100% - 32px)}.cover-pair{gap:36px}.cover-pair figure:first-child,.cover-pair figure:last-child{width:100%}h1{font-size:56px}.content{padding:58px 0}.process-card,.process-card:first-child{display:block;padding:30px 0}.process-visual{height:164px;margin:22px 0 26px}.process-card h3{margin-top:0}}
+</style>
+
+</head>
+<body>
+<header><div class="wrap header-inner"><a class="brand" href="../index.html">AHYUN HWANG</a><a class="back" href="../index.html#portfolio">Back to Projects</a></div></header>
+<main>
+<section class="hero"><div class="wrap"><div class="kicker">DTEQ 02 · SPATIAL MAPPING</div><h1>Everyday Play Infrastructure<br>in Hudson Square</h1><p class="lead">Focusing on young children and caregivers, this project examines how Hudson Square supports everyday access to care, play, and public open space. Spatial analysis reveals how large blocks, traffic barriers, and waterfront-oriented open spaces can weaken a continuous child-supporting network.</p></div></section>
+<div class="wrap cover-pair" aria-label="Everyday Play Infrastructure project boards"><figure class="board-reveal"><img src="../images/dteq-02-board-01.jpg" alt="Everyday Play Infrastructure in Hudson Square analytical project board"><figcaption class="board-caption"><span>01</span><span>Spatial Framework</span></figcaption></figure><figure class="board-reveal"><img src="../images/dteq-02-board-02.jpg" alt="GIS mapping of child-supporting infrastructure in Hudson Square"><figcaption class="board-caption"><span>02</span><span>GIS Analysis</span></figcaption></figure></div>
+<section class="content" aria-labelledby="research-process-title"><div><h2 id="research-process-title">Research Process</h2><div class="process-grid">
+  <article class="process-card">
+    <div class="process-number">01</div>
+    <div class="process-visual" role="img" aria-label="Under-18 population increased from 7,936 in 2010 to 8,587 in 2020, an 8.2 percent increase">
+      <svg viewBox="0 0 300 178" aria-hidden="true">
+        <line class="diagram-line muted" x1="30" y1="145" x2="270" y2="145"/>
+        <rect class="diagram-fill" x="64" y="60" width="62" height="85"/>
+        <rect class="diagram-accent" x="174" y="53" width="62" height="92"/>
+        <text class="diagram-value" x="95" y="48" text-anchor="middle">7,936</text>
+        <text class="diagram-value" x="205" y="41" text-anchor="middle">8,587</text>
+        <text class="diagram-small" x="95" y="164" text-anchor="middle">2010</text>
+        <text class="diagram-small" x="205" y="164" text-anchor="middle">2020</text>
+        <path class="diagram-line" d="M130 72 C148 58 157 57 171 61"/>
+        <path class="diagram-line" d="M165 56 L172 61 L165 66"/>
+        <text class="diagram-small" x="150" y="48" text-anchor="middle">+8.2%</text>
+      </svg>
+    </div>
+    <h3>Growing Child Population</h3>
+    <p>Manhattan Community District 2’s under-18 population increased from 7,936 in 2010 to 8,587 in 2020, an 8.2% increase—outpacing the district’s overall population growth.</p>
+    <small class="process-note">NYC Department of City Planning · 2010/2020 Census. Total population: 90,016 → 92,445 (+2.7%).</small>
+  </article>
+  <article class="process-card">
+    <div class="process-number">02</div>
+    <div class="process-visual" role="img" aria-label="Growing families and new development lead to more demand and pressure on existing play space">
+      <svg viewBox="0 0 300 178" aria-hidden="true">
+        <rect class="diagram-node" x="6" y="42" width="82" height="34" rx="17"/><text class="diagram-text" x="47" y="63" text-anchor="middle">Growing families</text>
+        <rect class="diagram-node" x="6" y="102" width="82" height="34" rx="17"/><text class="diagram-text" x="47" y="123" text-anchor="middle">New development</text>
+        <path class="diagram-line muted" d="M88 59 H118 C129 59 132 80 143 80 H155"/><path class="diagram-line muted" d="M88 119 H118 C129 119 132 98 143 98 H155"/>
+        <rect class="diagram-fill" x="155" y="72" width="64" height="34" rx="17"/><text class="diagram-text" x="187" y="93" text-anchor="middle">More demand</text>
+        <path class="diagram-line" d="M219 89 H244"/><path class="diagram-line" d="M238 84 L245 89 L238 94"/>
+        <circle class="diagram-node" cx="270" cy="89" r="24"/><text class="diagram-text" x="270" y="86" text-anchor="middle">Play-space</text><text class="diagram-text" x="270" y="98" text-anchor="middle">pressure</text>
+      </svg>
+    </div>
+    <h3>Growing Pressure on Play Space</h3>
+    <p>As families with young children increase, existing active play spaces face growing pressure. Large-scale development and rezoning are expected to further increase demand for parks and recreational space.</p>
+  </article>
+  <article class="process-card">
+    <div class="process-number">03</div>
+    <div class="process-visual" role="img" aria-label="A fragmented everyday network connecting home, childcare, school, playground, and waterfront open space">
+      <svg viewBox="0 0 300 178" aria-hidden="true">
+        <path class="diagram-line muted" d="M49 88 L112 42 L184 56"/><path class="diagram-line broken" d="M49 88 L116 133 L184 56"/><path class="diagram-line" d="M184 56 L252 96"/><path class="diagram-line broken" d="M116 133 L252 96"/>
+        <circle class="diagram-node" cx="49" cy="88" r="20"/><circle class="diagram-node" cx="112" cy="42" r="20"/><circle class="diagram-node" cx="116" cy="133" r="20"/><circle class="diagram-node" cx="184" cy="56" r="20"/><circle class="diagram-accent" cx="252" cy="96" r="24"/>
+        <text class="diagram-text" x="49" y="91" text-anchor="middle">Home</text><text class="diagram-text" x="112" y="39" text-anchor="middle">Child</text><text class="diagram-text" x="112" y="51" text-anchor="middle">care</text><text class="diagram-text" x="116" y="136" text-anchor="middle">School</text><text class="diagram-text" x="184" y="59" text-anchor="middle">Playground</text><text class="diagram-text light" x="252" y="93" text-anchor="middle">Waterfront</text><text class="diagram-text light" x="252" y="105" text-anchor="middle">open space</text>
+        <text class="diagram-small" x="201" y="139" text-anchor="middle">fragmented connections</text>
+      </svg>
+    </div>
+    <h3>Limited Public Open Space</h3>
+    <p>The need for additional public open space is already recognized as a district-wide concern. Within Hudson Square, this raises a more specific question: how well are existing parks, playgrounds, schools, and childcare facilities connected as an everyday network for children and caregivers?</p>
+  </article>
+</div></div></section>
+<div class="wrap project-nav"><a href="dteq-01.html">← Previous Project</a><a href="dteq-03.html">Next Project →</a></div>
+</main>
+<script>
+document.documentElement.classList.add('reveal-ready');
+const boards=document.querySelectorAll('.board-reveal');
+const observer=new IntersectionObserver((entries)=>{entries.forEach((entry)=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');observer.unobserve(entry.target);}});},{threshold:.16});
+boards.forEach((board)=>observer.observe(board));
+</script>
+</body>
+</html>

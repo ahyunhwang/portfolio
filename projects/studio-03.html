@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+  <title>It takes a village — AHYUN HWANG</title>
+
+<style>
+:root{--lavender:#D8D8F6;--violet:#B18FCF;--rose:#978897;--gray:#494850;--black:#2C2C34;--paper:#F7F6F4;--white:#fff;--line:rgba(44,44,52,.22)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--black);font-family:"Inter",sans-serif;font-synthesis:none;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit;text-decoration:none}.wrap{width:min(calc(100% - 48px),1240px);margin:auto}
+header{position:sticky;top:0;z-index:10;background:rgba(247,246,244,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.header-inner{height:72px;display:flex;align-items:center;justify-content:space-between}.brand{font-size:14px;letter-spacing:.08em;text-transform:uppercase}
+.back{font-size:13px;padding-bottom:4px;border-bottom:1px solid var(--line)}
+.hero{padding:90px 0 50px}.kicker{color:var(--rose);font-size:11px;text-transform:uppercase;letter-spacing:.14em}
+h1{margin:18px 0 24px;font-size:clamp(54px,8vw,110px);line-height:.9;font-weight:200;letter-spacing:-.055em}
+.lead{max-width:760px;font-size:20px;line-height:1.5;color:var(--gray);font-weight:300}
+.cover{aspect-ratio:16/9;background:var(--black);position:relative;overflow:hidden}
+.cover video{width:100%;height:100%;object-fit:cover;display:block}
+.content{width:min(calc(100% - 48px),1240px);margin:auto;padding:78px 0;border-bottom:1px solid var(--line)}
+.label{color:var(--rose);font-size:11px;text-transform:uppercase;letter-spacing:.13em}
+.content h2{margin:0 0 22px;font-size:38px;font-weight:200;letter-spacing:-.035em}
+.content p{max-width:760px;font-size:16px;line-height:1.7;color:var(--gray)}
+.rulebook-gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:36px}.rulebook-thumb{display:block;width:100%;padding:0;border:0;background:transparent;cursor:zoom-in}.rulebook-page{display:block;width:100%;height:auto;background:var(--white);box-shadow:0 8px 24px rgba(44,44,52,.08);transition:transform .2s ease,box-shadow .2s ease}.rulebook-thumb:hover .rulebook-page,.rulebook-thumb:focus-visible .rulebook-page{transform:translateY(-4px);box-shadow:0 13px 30px rgba(44,44,52,.15)}
+.lightbox{position:fixed;inset:0;z-index:30;display:none;place-items:center;padding:28px;background:rgba(24,24,29,.86);backdrop-filter:blur(8px)}.lightbox.is-open{display:grid}.lightbox-image{display:block;max-width:min(92vw,900px);max-height:90vh;width:auto;height:auto;box-shadow:0 20px 60px rgba(0,0,0,.35)}.lightbox-close{position:absolute;top:20px;right:24px;width:42px;height:42px;border:1px solid rgba(255,255,255,.5);border-radius:50%;background:rgba(0,0,0,.18);color:#fff;font:300 28px/1 "Inter",sans-serif;cursor:pointer}
+.project-nav{display:flex;justify-content:space-between;gap:30px;padding:48px 0 80px;font-size:13px}
+@media(max-width:720px){.wrap,.content{width:calc(100% - 32px)}h1{font-size:56px}.rulebook-gallery{grid-template-columns:repeat(4,170px);gap:12px;margin-top:26px;overflow-x:auto;padding:0 0 14px;scroll-snap-type:x proximity}.rulebook-thumb{scroll-snap-align:start}.lightbox{padding:16px}.lightbox-close{top:12px;right:12px}}
+</style>
+
+</head>
+<body>
+<header><div class="wrap header-inner"><a class="brand" href="../index.html">AHYUN HWANG</a><a class="back" href="../index.html#portfolio">Back to Projects</a></div></header>
+<main>
+<section class="hero"><div class="wrap"><div class="kicker">Studio 03 · Plural Futures</div><h1>It takes a village</h1><p class="lead">Using a semi-cooperative board game as a design medium, this project explores how different stakeholders negotiate land use, policy, and competing interests to build a more resilient community. The game reframes urban planning as a series of collective decisions where individual goals and shared futures are constantly in tension.</p></div></section>
+<div class="wrap"><div class="cover"><video src="../images/studio-03-main.mp4" autoplay muted loop playsinline controls preload="metadata">Your browser does not support embedded video.</video></div></div>
+<section class="content"><div><h2>Game Framework</h2><div class="rulebook-gallery"><button class="rulebook-thumb" type="button" aria-label="Open rule book cover"><img class="rulebook-page" src="../images/studio-03-rulebook-01.jpg" alt="It Takes a Village rule book cover"></button><button class="rulebook-thumb" type="button" aria-label="Open game contents page"><img class="rulebook-page" src="../images/studio-03-rulebook-02.jpg" alt="Game contents and components"></button><button class="rulebook-thumb" type="button" aria-label="Open how to play page"><img class="rulebook-page" src="../images/studio-03-rulebook-03.jpg" alt="How to play the game"></button><button class="rulebook-thumb" type="button" aria-label="Open point system page"><img class="rulebook-page" src="../images/studio-03-rulebook-04.jpg" alt="Game point system"></button></div></div></section>
+<div class="wrap project-nav"><a href="studio-02.html">← Previous Project</a><a href="dteq-01.html">Next Project →</a></div>
+</main>
+<div class="lightbox" role="dialog" aria-modal="true" aria-label="Expanded rule book page"><button class="lightbox-close" type="button" aria-label="Close expanded image">×</button><img class="lightbox-image" src="" alt=""></div>
+<script>
+const lightbox=document.querySelector('.lightbox');
+const lightboxImage=document.querySelector('.lightbox-image');
+const closeLightbox=()=>{lightbox.classList.remove('is-open');document.body.style.overflow='';lightboxImage.src='';};
+document.querySelectorAll('.rulebook-thumb').forEach(button=>button.addEventListener('click',()=>{const image=button.querySelector('img');lightboxImage.src=image.src;lightboxImage.alt=image.alt;lightbox.classList.add('is-open');document.body.style.overflow='hidden';document.querySelector('.lightbox-close').focus();}));
+document.querySelector('.lightbox-close').addEventListener('click',closeLightbox);
+lightbox.addEventListener('click',event=>{if(event.target===lightbox)closeLightbox();});
+document.addEventListener('keydown',event=>{if(event.key==='Escape'&&lightbox.classList.contains('is-open'))closeLightbox();});
+</script>
+</body>
+</html>

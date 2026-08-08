@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+  <title>From Canvas to Commodity — AHYUN HWANG</title>
+
+<style>
+:root{--lavender:#D8D8F6;--violet:#B18FCF;--rose:#978897;--gray:#494850;--black:#2C2C34;--paper:#F7F6F4;--white:#fff;--line:rgba(44,44,52,.22)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--black);font-family:"Inter",sans-serif;font-synthesis:none;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit;text-decoration:none}.wrap{width:min(calc(100% - 48px),1240px);margin:auto}
+header{position:sticky;top:0;z-index:10;background:rgba(247,246,244,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.header-inner{height:72px;display:flex;align-items:center;justify-content:space-between}.brand{font-size:14px;letter-spacing:.08em;text-transform:uppercase}
+.back{font-size:13px;padding-bottom:4px;border-bottom:1px solid var(--line)}
+.hero{padding:90px 0 50px}.kicker{color:var(--rose);font-size:11px;text-transform:uppercase;letter-spacing:.14em}
+h1{margin:18px 0 24px;font-size:clamp(54px,8vw,110px);line-height:.9;font-weight:200;letter-spacing:-.055em}
+.lead{max-width:760px;font-size:20px;line-height:1.5;color:var(--gray);font-weight:300}
+.cover{aspect-ratio:936/331;background:var(--white);position:relative;overflow:hidden}
+.cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block}
+.cover-stage-middle{opacity:0;animation:transect-middle 4.8s ease-in-out infinite}
+.cover-stage-final{opacity:0;animation:transect-final 4.8s ease-in-out infinite}
+@keyframes transect-middle{
+  0%,18%{opacity:0}
+  27%,39%{opacity:1}
+  48%,100%{opacity:0}
+}
+@keyframes transect-final{
+  0%,39%{opacity:0}
+  48%,92%{opacity:1}
+  100%{opacity:0}
+}
+@media(prefers-reduced-motion:reduce){.cover-stage-middle{animation:none;opacity:0}.cover-stage-final{animation:none;opacity:1}}
+.content{width:min(calc(100% - 48px),1240px);margin:auto;padding:78px 0;border-bottom:1px solid var(--line)}
+.label{color:var(--rose);font-size:11px;text-transform:uppercase;letter-spacing:.13em}
+.content h2{margin:0 0 22px;font-size:38px;font-weight:200;letter-spacing:-.035em}
+.content p{max-width:760px;font-size:16px;line-height:1.7;color:var(--gray)}
+.process-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:42px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.process-step{min-width:0;padding:30px 28px 38px;border-left:1px solid var(--line)}
+.process-step:first-child{padding-left:0;border-left:0}
+.process-step:last-child{padding-right:0}
+.process-number{margin-bottom:18px;color:var(--rose);font-size:11px;letter-spacing:.13em}
+.process-step h3{margin:22px 0 14px;font-size:clamp(23px,2.3vw,31px);line-height:1.08;font-weight:200;letter-spacing:-.035em}
+.process-step p{margin:0;max-width:none;font-size:14px;line-height:1.6}
+.process-image{height:190px;background:var(--paper);display:grid;place-items:center;overflow:hidden}
+.process-image img{width:100%;height:100%;object-fit:contain;display:block}
+.process-step:first-child .process-image img{mix-blend-mode:multiply}
+.project-nav{display:flex;justify-content:space-between;gap:30px;padding:48px 0 80px;font-size:13px}
+@media(max-width:820px){.process-list{grid-template-columns:1fr}.process-step,.process-step:first-child,.process-step:last-child{padding:34px 0;border-left:0;border-top:1px solid var(--line)}.process-step:first-child{border-top:0}.process-image{width:min(100%,520px);height:auto;aspect-ratio:16/10}}
+@media(max-width:720px){.wrap,.content{width:calc(100% - 32px)}h1{font-size:56px}}
+</style>
+
+</head>
+<body>
+<header><div class="wrap header-inner"><a class="brand" href="../index.html">AHYUN HWANG</a><a class="back" href="../index.html#portfolio">Back to Projects</a></div></header>
+<main>
+<section class="hero"><div class="wrap"><div class="kicker">Studio 01 · Constructing the Past</div><h1>From Canvas to Commodity</h1><p class="lead">Drawing on artists as the core community, this transect illustration seeks to uncover the life cycle of artists moving into an ‘undesirable’ urban space, creating vibrant culture, and being priced out as a reflection of the overall trend of ‘creative eviction’ found throughout New York—and beyond.</p></div></section>
+<div class="wrap"><div class="cover"><img src="../images/studio-01-animation-v2-1.jpg" alt="Base urban transect drawing"><img class="cover-stage-middle" src="../images/studio-01-animation-v2-3.jpg" alt="Intermediate urban transect research layer"><img class="cover-stage-final" src="../images/studio-01-animation-v2-4.jpg" alt="Completed illustrated urban transect tracing the cycle of artists and creative eviction in New York"></div></div>
+<section class="content"><div><h2>Research Process</h2><div class="process-list"><article class="process-step"><div class="process-number">01</div><div class="process-image"><img src="../images/studio-01-process-01-summary.png" alt="Comparison of preservation forms across Greenwich Village, Hudson Square, and Tribeca"></div><h3>Reading Change through Preservation</h3><p>Comparing Greenwich Village, Hudson Square, and Tribeca revealed how preservation and redevelopment can retain physical form while transforming local communities and economies. This raised a central question: how does urban change create value, and who is displaced in the process?</p></article><article class="process-step"><div class="process-number">02</div><div class="process-image"><img src="../images/studio-01-process-02.png" alt="Historical newspaper illustration about artists being displaced from a neighborhood"></div><h3>Finding Artists as the Through-line</h3><p>Artists revealed a recurring pattern across the transect: they moved into affordable spaces, generated cultural value, and were later priced out as neighborhoods became more desirable. Their movement connected neighborhood identity directly to displacement.</p></article><article class="process-step"><div class="process-number">03</div><div class="process-image"><img src="../images/studio-01-process-03.png" alt="Artists and visitors gathered inside a loft studio"></div><h3>Mapping Creative Eviction across Time and Space</h3><p>The final transect maps artist communities across the three neighborhoods and connects their displacement to changing urban conditions. It frames this process as creative eviction: the city preserves the image of creativity while excluding the communities that produced it.</p></article></div></div></section>
+<div class="wrap project-nav"><span></span><a href="studio-02.html">Next Project →</a></div>
+</main>
+</body>
+</html>

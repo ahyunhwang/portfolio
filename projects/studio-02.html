@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+  <title>Reciprocity in the Village — AHYUN HWANG</title>
+
+<style>
+:root{--lavender:#D8D8F6;--violet:#B18FCF;--rose:#978897;--gray:#494850;--black:#2C2C34;--paper:#F7F6F4;--white:#fff;--line:rgba(44,44,52,.22)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--black);font-family:"Inter",sans-serif;font-synthesis:none;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit;text-decoration:none}.wrap{width:min(calc(100% - 48px),1240px);margin:auto}
+header{position:sticky;top:0;z-index:10;background:rgba(247,246,244,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.header-inner{height:72px;display:flex;align-items:center;justify-content:space-between}.brand{font-size:14px;letter-spacing:.08em;text-transform:uppercase}
+.back{font-size:13px;padding-bottom:4px;border-bottom:1px solid var(--line)}
+.hero{padding:90px 0 50px}.kicker{color:var(--rose);font-size:11px;text-transform:uppercase;letter-spacing:.14em}
+h1{margin:18px 0 24px;font-size:clamp(54px,8vw,110px);line-height:.9;font-weight:200;letter-spacing:-.055em}
+.lead{max-width:760px;font-size:20px;line-height:1.5;color:var(--gray);font-weight:300}
+.zine-viewer{padding:46px 24px 28px;background:#ecebe8;border:1px solid var(--line)}
+.zine-book{position:relative;width:min(100%,900px);aspect-ratio:1584/1224;margin:auto;cursor:pointer;perspective:1800px;isolation:isolate}
+.zine-spread{position:absolute;inset:0;display:block;filter:drop-shadow(0 16px 22px rgba(44,44,52,.16));transform-style:preserve-3d}
+.zine-spread.is-interior::before{content:"";position:absolute;z-index:2;top:0;bottom:0;left:50%;width:30px;transform:translateX(-50%);pointer-events:none;background:linear-gradient(90deg,transparent,rgba(44,44,52,.12) 43%,rgba(255,255,255,.42) 50%,rgba(44,44,52,.1) 57%,transparent)}
+.zine-page{width:100%;height:100%;background:transparent;overflow:hidden;backface-visibility:hidden}
+.zine-page img{width:100%;height:100%;object-fit:contain;display:block}
+.zine-spread.hold-left{z-index:3;clip-path:inset(0 50% 0 0);animation:hold-half .46s ease forwards}
+.zine-spread.hold-right{z-index:3;clip-path:inset(0 0 0 50%);animation:hold-half .46s ease forwards}
+.zine-spread.turn-page-forward{z-index:4;clip-path:inset(0 0 0 50%);animation:turn-right-page .46s cubic-bezier(.7,0,.3,1) forwards;transform-origin:left center}
+.zine-spread.turn-page-back{z-index:4;clip-path:inset(0 50% 0 0);animation:turn-left-page .46s cubic-bezier(.7,0,.3,1) forwards;transform-origin:right center}
+.zine-spread.turn-cover-forward,.zine-spread.turn-cover-back{z-index:4;animation:turn-cover .4s ease forwards}
+.zine-spread.turn-page-forward::after,.zine-spread.turn-page-back::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(44,44,52,.3),transparent 38%,rgba(255,255,255,.12));animation:page-shade .46s ease forwards}
+@keyframes turn-right-page{0%{opacity:1;transform:scaleX(1)}78%{opacity:1;transform:scaleX(.06)}100%{opacity:0;transform:scaleX(0)}}
+@keyframes turn-left-page{0%{opacity:1;transform:scaleX(1)}78%{opacity:1;transform:scaleX(.06)}100%{opacity:0;transform:scaleX(0)}}
+@keyframes turn-cover{0%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(.985)}}
+@keyframes hold-half{0%,68%{opacity:1}100%{opacity:0}}
+@keyframes page-shade{0%{opacity:0}65%{opacity:1}100%{opacity:0}}
+.zine-controls{width:min(100%,900px);margin:20px auto 0;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.zine-controls button{border:0;border-bottom:1px solid var(--line);padding:5px 0;background:transparent;cursor:pointer;font-size:11px;text-transform:uppercase;letter-spacing:.1em}
+.zine-status{color:var(--rose);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.zine-hint{width:min(100%,900px);margin:12px auto 0;color:var(--gray);font-size:11px;text-align:center;letter-spacing:.04em}
+.content{width:min(calc(100% - 48px),1240px);margin:auto;padding:78px 0;border-bottom:1px solid var(--line)}
+.label{color:var(--rose);font-size:11px;text-transform:uppercase;letter-spacing:.13em}
+.content h2{margin:0 0 22px;font-size:38px;font-weight:200;letter-spacing:-.035em}
+.content p{max-width:760px;font-size:16px;line-height:1.7;color:var(--gray)}
+.process-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:42px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.process-step{min-width:0;padding:30px 28px 38px;border-left:1px solid var(--line)}
+.process-step:first-child{padding-left:0;border-left:0}
+.process-step:last-child{padding-right:0}
+.process-number{margin-bottom:18px;color:var(--rose);font-size:11px;letter-spacing:.13em}
+.process-step h3{margin:22px 0 14px;font-size:clamp(23px,2.3vw,31px);line-height:1.08;font-weight:200;letter-spacing:-.035em}
+.process-step p{margin:0;max-width:none;font-size:14px;line-height:1.6}
+.process-image{height:190px;background:var(--lavender);display:grid;place-items:center;overflow:hidden;color:var(--gray);font-size:11px;text-transform:uppercase;letter-spacing:.08em}
+.process-image img{width:100%;height:100%;object-fit:cover;display:block}
+.process-step:nth-child(3) .process-image{background:var(--paper)}
+.process-step:nth-child(3) .process-image img{mix-blend-mode:multiply}
+.project-nav{display:flex;justify-content:space-between;gap:30px;padding:48px 0 80px;font-size:13px}
+@media(prefers-reduced-motion:reduce){.zine-spread.turn-page-forward,.zine-spread.turn-page-back,.zine-spread.turn-cover-forward,.zine-spread.turn-cover-back,.zine-spread.hold-left,.zine-spread.hold-right{animation-duration:.01ms}}
+@media(max-width:820px){.process-list{grid-template-columns:1fr}.process-step,.process-step:first-child,.process-step:last-child{padding:34px 0;border-left:0;border-top:1px solid var(--line)}.process-step:first-child{border-top:0}.process-image{width:min(100%,520px);height:auto;aspect-ratio:16/10}}
+@media(max-width:720px){.wrap,.content{width:calc(100% - 32px)}h1{font-size:56px}.zine-viewer{padding:24px 12px 20px}}
+</style>
+
+</head>
+<body>
+<header><div class="wrap header-inner"><a class="brand" href="../index.html">AHYUN HWANG</a><a class="back" href="../index.html#portfolio">Back to Projects</a></div></header>
+<main>
+<section class="hero"><div class="wrap"><div class="kicker">Studio 02 · The Standing Now of the Present</div><h1>Reciprocity in the Village</h1><p class="lead">Combining top-down spatial analysis with bottom-up ethnographic research, this project explores the invisible infrastructure of workers who sustain Greenwich Village. The zine reframes community as a network of everyday reciprocity rather than a place defined only by residency.</p></div></section>
+<div class="wrap"><section class="zine-viewer" aria-label="Reciprocity in the Village digital zine"><div class="zine-book" id="zineBook" role="button" tabindex="0" aria-label="Click to turn to the next pages"><div class="zine-spread" id="zineSpread"></div></div><div class="zine-controls"><button type="button" id="zinePrev">Previous</button><div class="zine-status" id="zineStatus">Cover · 1 / 16</div><button type="button" id="zineNext">Next</button></div><p class="zine-hint">Click the book to turn the page</p></section></div>
+<section class="content"><div><h2>Research Process</h2><div class="process-list"><article class="process-step"><div class="process-number">01</div><div class="process-image"><img src="../images/studio-02-process-01.png" alt="GIS mapping of wealth patterns and daytime population across New York City"></div><h3>GIS Mapping</h3><p>GIS mapping revealed a sharp contrast between the neighborhood’s high household incomes and the many workers commuting in from elsewhere. We initially framed these service workers as an invisible population—essential to the area, yet unable to live close to where they worked or fully participate in the community they sustained.</p></article><article class="process-step"><div class="process-number">02</div><div class="process-image"><img src="../images/studio-02-process-02.jpg" alt="Street observation and interview research in Greenwich Village"></div><h3>Street Interviews</h3><p>Street interviews challenged this initial assumption. Many workers spoke positively about the neighborhood, their jobs, and their everyday relationships with the people they encountered. Rather than describing only exclusion or dissatisfaction, their stories revealed a more complex and often positive connection to the Village.</p></article><article class="process-step"><div class="process-number">03</div><div class="process-image"><img src="../images/studio-02-process-03.png" alt="Illustrated map developed for the Reciprocity in the Village narrative zine"></div><h3>Narrative Zine</h3><p>This finding shifted the project from documenting invisibility to examining reciprocity. The final zine follows the daily interactions between residents and workers, portraying community as a mutually sustaining relationship shaped by care, service, familiarity, and repeated everyday encounters.</p></article></div></div></section>
+<div class="wrap project-nav"><a href="studio-01.html">← Previous Project</a><a href="studio-03.html">Next Project →</a></div>
+</main>
+<script>
+const zinePages=Array.from({length:16},(_,i)=>`../images/studio-02-zine/page-${String(i+1).padStart(2,"0")}.jpg`);
+const zineSpreads=Array.from({length:16},(_,i)=>[i]);
+const zineBook=document.getElementById("zineBook");
+const zineSpread=document.getElementById("zineSpread");
+const zineStatus=document.getElementById("zineStatus");
+let zineIndex=0;
+let zineTurning=false;
+function zineMarkup(spread){return spread.map((page)=>`<div class="zine-page"><img src="${zinePages[page]}" alt="Reciprocity in the Village zine page ${page+1}"></div>`).join("")}
+function renderZine(){const spread=zineSpreads[zineIndex];const page=spread[0]+1;zineSpread.className=`zine-spread${page>1&&page<16?" is-interior":""}`;zineSpread.innerHTML=zineMarkup(spread);zineStatus.textContent=`${page===1?"Cover":page===16?"Back Cover":`Page ${page}`} · ${page} / 16`}
+function turnZine(direction){if(zineTurning)return;const next=(zineIndex+direction+zineSpreads.length)%zineSpreads.length;zineTurning=true;const isCover=zineIndex===0||zineIndex===15;const turning=zineSpread.cloneNode(true);turning.removeAttribute("id");let held=null;if(isCover){turning.classList.add(direction>0?"turn-cover-forward":"turn-cover-back");zineBook.append(turning)}else{held=zineSpread.cloneNode(true);held.removeAttribute("id");held.classList.add(direction>0?"hold-left":"hold-right");turning.classList.add(direction>0?"turn-page-forward":"turn-page-back");zineBook.append(held,turning)}zineIndex=next;renderZine();window.setTimeout(()=>{if(held)held.remove();turning.remove();zineTurning=false},500)}
+document.getElementById("zineNext").addEventListener("click",()=>turnZine(1));
+document.getElementById("zinePrev").addEventListener("click",()=>turnZine(-1));
+zineBook.addEventListener("click",()=>turnZine(1));
+zineBook.addEventListener("keydown",(event)=>{if(event.key==="Enter"||event.key===" "){event.preventDefault();turnZine(1)}else if(event.key==="ArrowLeft")turnZine(-1);else if(event.key==="ArrowRight")turnZine(1)});
+renderZine();
+</script>
+</body>
+</html>

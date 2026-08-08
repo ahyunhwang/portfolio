@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+  <title>Hudson Square: Urban Transformation — AHYUN HWANG</title>
+
+<style>
+:root{--lavender:#D8D8F6;--violet:#B18FCF;--rose:#978897;--gray:#494850;--black:#2C2C34;--paper:#F7F6F4;--white:#fff;--line:rgba(44,44,52,.22)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--black);font-family:"Inter",sans-serif;font-synthesis:none;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit;text-decoration:none}.wrap{width:min(calc(100% - 48px),1240px);margin:auto}
+header{position:sticky;top:0;z-index:10;background:rgba(247,246,244,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.header-inner{height:72px;display:flex;align-items:center;justify-content:space-between}.brand{font-size:14px;letter-spacing:.08em;text-transform:uppercase}
+.back{font-size:13px;padding-bottom:4px;border-bottom:1px solid var(--line)}
+.hero{padding:90px 0 50px}.kicker{color:var(--rose);font-size:11px;text-transform:uppercase;letter-spacing:.14em}
+h1{margin:18px 0 24px;font-size:clamp(54px,8vw,110px);line-height:.9;font-weight:200;letter-spacing:-.055em}
+.content{width:min(calc(100% - 48px),1240px);margin:auto;padding:24px 0 78px;border-bottom:1px solid var(--line)}
+.label{color:var(--rose);font-size:11px;text-transform:uppercase;letter-spacing:.13em}
+.content h2{margin:0 0 22px;font-size:38px;font-weight:200;letter-spacing:-.035em}
+.content p{max-width:760px;font-size:16px;line-height:1.7;color:var(--gray)}
+.video-series{display:grid;gap:92px}.video-item{margin:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(36px,7vw,92px);align-items:center}.video-panel{min-width:0}.video-item.is-right .video-panel{grid-column:2}.video-item.is-right .video-copy{grid-column:1;grid-row:1}.video-heading{display:flex;align-items:baseline;gap:14px;margin:0 0 14px}.video-number{color:var(--rose);font-size:11px;letter-spacing:.13em;flex:none}.video-title{margin:0;font-size:22px;font-weight:300;letter-spacing:-.025em}.video-item video{display:block;width:100%;height:auto;background:transparent}.video-frame{overflow:hidden;line-height:0}.video-frame.edge-crop video{transform:scale(1.0025);transform-origin:top left}.video-copy{max-width:430px}.video-copy p{margin:0;font-size:17px;line-height:1.65;font-weight:300}.video-copy:before{content:"";display:block;width:42px;border-top:1px solid var(--rose);margin-bottom:22px}
+.project-nav{display:flex;justify-content:space-between;gap:30px;padding:48px 0 80px;font-size:13px}
+@media(max-width:720px){.wrap,.content{width:calc(100% - 32px)}h1{font-size:56px}.video-series{gap:58px}.video-item{grid-template-columns:1fr;gap:24px}.video-item.is-right .video-panel,.video-item.is-right .video-copy{grid-column:1;grid-row:auto}.video-panel{grid-row:1}.video-copy{grid-row:2}.video-copy p{font-size:15px}.video-title{font-size:19px}}
+</style>
+
+</head>
+<body>
+<header><div class="wrap header-inner"><a class="brand" href="../index.html">AHYUN HWANG</a><a class="back" href="../index.html#portfolio">Back to Projects</a></div></header>
+<main>
+<section class="hero"><div class="wrap"><div class="kicker">DTEQ 03 · VIDEO NARRATIVE</div><h1>Hudson Square:<br>Urban Transformation</h1></div></section>
+<section class="content" aria-label="Hudson Square video series"><div class="video-series">
+  <figure class="video-item"><div class="video-panel"><div class="video-heading"><span class="video-number">01</span><h2 class="video-title">Hudson Square Today</h2></div><div class="video-frame edge-crop"><video controls autoplay muted loop preload="auto" playsinline><source src="../videos/dteq-03-01-hudson-square-today.mp4" type="video/mp4">Your browser does not support HTML video.</video></div></div><figcaption class="video-copy"><p>Mapping Hudson Square’s current land-use patterns to understand the spatial structure of the district today. The analysis reveals how residential, commercial, institutional, and industrial uses coexist within a rapidly changing urban fabric.</p></figcaption></figure>
+  <figure class="video-item is-right"><div class="video-panel"><div class="video-heading"><span class="video-number">02</span><h2 class="video-title">How Hudson Square Changed?</h2></div><video controls autoplay muted loop preload="auto" playsinline><source src="../videos/dteq-03-02-how-did-hudson-square-change.mp4" type="video/mp4">Your browser does not support HTML video.</video></div><figcaption class="video-copy"><p>Tracing the district’s historical transformation chronologically to understand how Hudson Square developed into its present form. The sequence follows its evolution from a waterfront industrial district to a printing center and, more recently, a mixed-use neighborhood shaped by redevelopment.</p></figcaption></figure>
+  <figure class="video-item"><div class="video-panel"><div class="video-heading"><span class="video-number">03</span><h2 class="video-title">Experiencing Hudson Square</h2></div><video controls autoplay muted loop preload="auto" playsinline><source src="../videos/dteq-03-03-experiencing-hudson-square.mp4" type="video/mp4">Your browser does not support HTML video.</video></div><figcaption class="video-copy"><p>Experiencing Hudson Square at street level through three distinctive conditions that characterize the neighborhood today. The video documents these conditions through direct observation, connecting the district’s physical environment with everyday movement and experience.</p></figcaption></figure>
+</div></section>
+<div class="wrap project-nav"><a href="dteq-02.html">← Previous Project</a><a href="../index.html#portfolio">Back to Projects →</a></div>
+</main>
+</body>
+</html>

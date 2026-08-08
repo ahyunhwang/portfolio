@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+  <title>Public Open Space Gaps in NYC — AHYUN HWANG</title>
+
+<style>
+:root{--lavender:#D8D8F6;--violet:#B18FCF;--rose:#978897;--gray:#494850;--black:#2C2C34;--paper:#F7F6F4;--white:#fff;--line:rgba(44,44,52,.22)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--black);font-family:"Inter",sans-serif;font-synthesis:none;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit;text-decoration:none}.wrap{width:min(calc(100% - 48px),1240px);margin:auto}
+header{position:sticky;top:0;z-index:10;background:rgba(247,246,244,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.header-inner{height:72px;display:flex;align-items:center;justify-content:space-between}.brand{font-size:14px;letter-spacing:.08em;text-transform:uppercase}
+.back{font-size:13px;padding-bottom:4px;border-bottom:1px solid var(--line)}
+.hero{padding:90px 0 50px}.kicker{color:var(--rose);font-size:11px;text-transform:uppercase;letter-spacing:.14em}
+h1{margin:18px 0 24px;font-size:clamp(54px,8vw,110px);line-height:.9;font-weight:200;letter-spacing:-.055em}
+.lead{max-width:760px;font-size:20px;line-height:1.5;color:var(--gray);font-weight:300}
+.cover{--split:4%;aspect-ratio:2400/1554;background:var(--paper);position:relative;overflow:hidden;isolation:isolate;cursor:ew-resize;touch-action:pan-y}
+.cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;pointer-events:none;user-select:none}
+.cover-wide{z-index:1}.cover-detail{z-index:2;clip-path:inset(0 calc(100% - var(--split)) 0 0)}
+.compare-divider{position:absolute;z-index:3;top:0;bottom:0;left:var(--split);width:1px;background:rgba(44,44,52,.72);transform:translateX(-.5px);pointer-events:none}
+.compare-handle{position:absolute;top:50%;left:50%;width:34px;height:34px;border:1px solid rgba(44,44,52,.55);border-radius:50%;background:rgba(247,246,244,.94);transform:translate(-50%,-50%);display:grid;place-items:center;color:var(--black);font-size:16px;font-weight:300;box-shadow:0 2px 12px rgba(44,44,52,.12)}
+.compare-range{position:absolute;z-index:4;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize}
+.compare-hint{position:absolute;z-index:3;left:18px;top:16px;padding:5px 7px;background:rgba(247,246,244,.86);color:var(--gray);font-size:9px;letter-spacing:.12em;text-transform:uppercase;pointer-events:none;animation:compare-hint 4.2s ease forwards}
+.cover.interacted .compare-hint{display:none}
+@keyframes compare-hint{0%,22%{opacity:0;transform:translateX(-4px)}38%,68%{opacity:1;transform:translateX(0)}100%{opacity:0;transform:translateX(0)}}
+.content{width:min(calc(100% - 48px),1240px);margin:auto;padding:78px 0;border-bottom:1px solid var(--line)}
+.label{color:var(--rose);font-size:11px;text-transform:uppercase;letter-spacing:.13em}
+.content h2{margin:0 0 22px;font-size:38px;font-weight:200;letter-spacing:-.035em}
+.content p{max-width:760px;font-size:16px;line-height:1.7;color:var(--gray)}
+.gis-layout{display:grid;grid-template-columns:minmax(0,1.75fr) minmax(240px,.9fr);gap:clamp(32px,4.5vw,72px);align-items:start;margin-top:32px}.gis-slideshow{position:relative;aspect-ratio:2048/1325;overflow:hidden;background:#efeeec}.gis-frame{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;z-index:1;will-change:opacity;transition:opacity .18s ease}.gis-frame.is-active{opacity:1}.gis-meta{padding-top:14px;border-top:1px solid var(--line)}.gis-description{margin:0;padding-bottom:24px;border-bottom:1px solid var(--line)}.gis-description p{max-width:none;margin:0;font-size:16px;line-height:1.7;color:var(--gray)}
+.project-nav{display:flex;justify-content:space-between;gap:30px;padding:48px 0 80px;font-size:13px}
+@media(max-width:720px){.wrap,.content{width:calc(100% - 32px)}.gis-layout{grid-template-columns:1fr;gap:24px;margin-top:24px}.gis-meta{min-height:0}.gis-description{min-height:60px}h1{font-size:56px}}
+</style>
+
+</head>
+<body>
+<header><div class="wrap header-inner"><a class="brand" href="../index.html">AHYUN HWANG</a><a class="back" href="../index.html#portfolio">Back to Projects</a></div></header>
+<main>
+<section class="hero"><div class="wrap"><div class="kicker">DTEQ 01 · GIS ANALYSIS</div><h1>Public Open Space<br>Gaps in NYC</h1><p class="lead">This GIS-based study examines uneven access to public open space across New York City. By comparing open space distribution with pedestrian activity and transit access, it reveals how the study area remains relatively underserved despite its dense urban activity and strong connectivity.</p></div></section>
+<div class="wrap"><div class="cover" id="dteq-compare"><img class="cover-wide" src="../images/dteq-01-citywide-cropped.jpg" alt="Citywide public open space access analysis"><img class="cover-detail" src="../images/dteq-01-neighborhood-cropped.jpg" alt="Neighborhood-scale public open space access analysis"><span class="compare-hint">Drag to compare</span><div class="compare-divider" aria-hidden="true"><span class="compare-handle">↔</span></div><input class="compare-range" type="range" min="0" max="100" value="4" aria-label="Drag to compare the citywide and neighborhood-scale maps"></div></div>
+<section class="content gis-section"><h2>GIS Data</h2><div class="gis-layout"><div class="gis-slideshow" id="gis-slideshow" aria-label="GIS data layers shown in sequence"><img class="gis-frame is-active" src="../images/dteq-gis-01.jpg" alt="Contour 3D GIS layer"><img class="gis-frame" src="../images/dteq-gis-02.jpg" alt="Hydro Structure GIS layer"></div><aside class="gis-meta"><div class="gis-description"><p>A series of GIS layers was used to examine New York City through physical, environmental, demographic, mobility, and public-space conditions. By comparing and overlaying these datasets, the analysis revealed spatial relationships and gaps that are difficult to recognize through any single layer alone.</p></div></aside></div></section>
+<div class="wrap project-nav"><a href="studio-03.html">← Previous Project</a><a href="dteq-02.html">Next Project →</a></div>
+</main>
+<script>
+const comparison=document.querySelector('#dteq-compare');
+const comparisonRange=comparison.querySelector('.compare-range');
+comparisonRange.addEventListener('input',()=>{comparison.style.setProperty('--split',comparisonRange.value+'%');comparison.classList.add('interacted')});
+const gisLayers=[
+  ['../images/dteq-gis-01.jpg','Contour 3D'],
+  ['../images/dteq-gis-02.jpg','Hydro Structure'],
+  ['../images/dteq-gis-03.jpg','Building Footprints'],
+  ['../images/dteq-gis-04.jpg','Sidewalk'],
+  ['../images/dteq-gis-05.jpg','Railroad Lines'],
+  ['../images/dteq-gis-06.jpg','Subway Entrances'],
+  ['../images/dteq-gis-07.jpg','Pedestrian Demand'],
+  ['../images/dteq-gis-08.jpg','Parking Lots'],
+  ['../images/dteq-gis-09.jpg','Sidewalk Cafes'],
+  ['../images/dteq-gis-10.jpg','Museums'],
+  ['../images/dteq-gis-11.jpg','Library'],
+  ['../images/dteq-gis-12.jpg','Median Household Income'],
+  ['../images/dteq-gis-13.jpg','Immigrant Population'],
+  ['../images/dteq-gis-14.jpg','65+ Age Population'],
+  ['../images/dteq-gis-15.jpg','Street Trees'],
+  ['../images/dteq-gis-16.jpg','Stormwater Flood'],
+  ['../images/dteq-gis-17.jpg','Public Plazas'],
+  ['../images/dteq-gis-18.jpg','Privately Owned Public Spaces'],
+  ['../images/dteq-gis-19.jpg','Open Space — Other'],
+  ['../images/dteq-gis-20.jpg','Open Space — Parks']
+];
+const gisLayerCache=gisLayers.map(([src])=>{
+  const image=new Image();
+  image.src=src;
+  const ready=image.decode
+    ? image.decode().catch(()=>{})
+    : new Promise(resolve=>{
+        if(image.complete){resolve();return}
+        image.addEventListener('load',resolve,{once:true});
+        image.addEventListener('error',resolve,{once:true});
+      });
+  return {image,ready};
+});
+const gisFrames=[...document.querySelectorAll('.gis-frame')];
+let gisIndex=0;
+let activeFrame=0;
+let gisTransitioning=false;
+gisFrames[0].style.zIndex='2';
+gisFrames[1].style.zIndex='1';
+function showNextGisLayer(){
+  if(gisTransitioning)return;
+  gisTransitioning=true;
+  const nextIndex=(gisIndex+1)%gisLayers.length;
+  const nextFrame=activeFrame===0?1:0;
+  const [src,title]=gisLayers[nextIndex];
+  const incoming=gisFrames[nextFrame];
+  const outgoing=gisFrames[activeFrame];
+  incoming.classList.remove('is-active');
+  incoming.src=src;
+  incoming.alt=`${title} GIS layer`;
+  incoming.style.zIndex='2';
+  outgoing.style.zIndex='1';
+  void incoming.offsetWidth;
+  requestAnimationFrame(()=>{
+    incoming.classList.add('is-active');
+    window.setTimeout(()=>{
+      outgoing.classList.remove('is-active');
+      gisIndex=nextIndex;
+      activeFrame=nextFrame;
+      gisTransitioning=false;
+    },180);
+  });
+}
+async function startGisSlideshow(){
+  await Promise.all(gisLayerCache.map(layer=>layer.ready));
+  window.setInterval(showNextGisLayer,500);
+}
+if(document.readyState==='complete'){
+  startGisSlideshow();
+}else{
+  window.addEventListener('load',startGisSlideshow,{once:true});
+}
+</script>
+</body>
+</html>

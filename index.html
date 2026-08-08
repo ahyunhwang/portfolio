@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+  <title>AHYUN HWANG — Urban Design Portfolio</title>
+  <style>
+    :root{
+      --lavender:#D8D8F6;
+      --violet:#B18FCF;
+      --rose:#978897;
+      --gray:#494850;
+      --black:#2C2C34;
+      --paper:#F5F5F5;
+      --white:#FFFFFF;
+      --line:rgba(44,44,52,.22);
+      --max:1440px;
+    }
+
+    *{box-sizing:border-box}
+
+    html{
+      scroll-behavior:smooth;
+      background:var(--paper);
+    }
+
+    body{
+      margin:0;
+      color:var(--black);
+      background:var(--paper);
+      font-family:"Inter", sans-serif;
+      font-synthesis:none;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+      font-weight:400;
+      letter-spacing:-.015em;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    button{
+      color:inherit;
+      font:inherit;
+    }
+
+    img{
+      max-width:100%;
+      display:block;
+    }
+
+    .site-header{
+      position:fixed;
+      z-index:50;
+      top:0;
+      left:0;
+      width:100%;
+      border-bottom:1px solid var(--line);
+      background:rgba(245,245,245,.9);
+      backdrop-filter:blur(16px);
+    }
+
+    .header-inner{
+      width:min(calc(100% - 48px),var(--max));
+      height:74px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .wordmark{
+      display:flex;
+      flex-direction:column;
+      line-height:1;
+      text-transform:uppercase;
+    }
+
+    .wordmark strong{
+      font-size:16px;
+      letter-spacing:.08em;
+      font-weight:500;
+    }
+
+    .wordmark span{
+      margin-top:5px;
+      font-size:12px;
+      letter-spacing:.045em;
+      color:var(--rose);
+      text-transform:none;
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      gap:34px;
+    }
+
+    .nav a{
+      position:relative;
+      padding:6px 0;
+      font-size:14px;
+    }
+
+    .nav a::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:0;
+      width:100%;
+      height:1px;
+      background:var(--violet);
+      transform:scaleX(0);
+      transform-origin:right;
+      transition:transform .3s ease;
+    }
+
+    .nav a:hover::after,
+    .nav a.active::after{
+      transform:scaleX(1);
+      transform-origin:left;
+    }
+
+    main{
+      overflow:hidden;
+    }
+
+    section{
+      scroll-margin-top:74px;
+    }
+
+    .hero{
+      min-height:100vh;
+      padding:148px 24px 72px;
+      background:
+        radial-gradient(circle at 80% 18%, rgba(177,143,207,.26), transparent 32%),
+        linear-gradient(180deg,var(--lavender),var(--paper) 64%);
+    }
+
+    .hero-inner{
+      width:min(100%,var(--max));
+      margin:auto;
+      display:grid;
+      grid-template-columns:minmax(0,1.05fr) minmax(460px,.95fr);
+      gap:clamp(50px,7vw,120px);
+      align-items:end;
+    }
+
+    .eyebrow{
+      margin:0 0 26px;
+      color:var(--rose);
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.17em;
+    }
+
+    .hero h1{
+      max-width:920px;
+      margin:0;
+      font-size:clamp(62px,9.8vw,148px);
+      font-weight:200;
+      line-height:.83;
+      letter-spacing:-.065em;
+    }
+
+    .hero-city-line{
+      display:inline-block;
+      white-space:nowrap;
+      font-size:.9em;
+    }
+
+    .hero-intro{
+      align-self:end;
+      padding-bottom:10px;
+    }
+
+    .hero-intro p{
+      max-width:510px;
+      margin:0 0 30px;
+      font-size:clamp(19px,2vw,30px);
+      line-height:1.25;
+      font-weight:300;
+    }
+
+    .quiet-link{
+      display:inline-flex;
+      align-items:center;
+      gap:18px;
+      padding-bottom:7px;
+      border-bottom:1px solid var(--gray);
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+    }
+
+    .hero-visual{
+      width:min(100%,var(--max));
+      margin:70px auto 0;
+      overflow:hidden;
+      border-radius:2px;
+      background:var(--rose);
+    }
+
+    .hero-art{
+      position:relative;
+      min-height:520px;
+      overflow:hidden;
+      background:var(--paper);
+    }
+
+    .hero-art::before,
+    .hero-art::after{
+      content:none;
+    }
+
+    .hero-map-layer{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      display:block;
+      object-fit:cover;
+      object-position:center 44%;
+      transform:scale(1.18);
+      transform-origin:30% 50%;
+      opacity:0;
+      animation-duration:4.5s;
+      animation-timing-function:ease-in-out;
+      animation-iteration-count:infinite;
+      animation-play-state:paused;
+    }
+
+    .hero-map-observe{animation-name:mapObserve;}
+    .hero-map-question{animation-name:mapQuestion;}
+    .hero-map-design{animation-name:mapDesign;}
+
+    .hero-map-shade{
+      position:absolute;
+      inset:0;
+      z-index:1;
+      background:linear-gradient(90deg,rgba(247,246,244,.94) 0%,rgba(247,246,244,.5) 28%,rgba(247,246,244,.05) 58%);
+      pointer-events:none;
+    }
+
+    .hero-visual.visible .hero-map-layer,
+    .hero-visual.visible .art-word{
+      animation-play-state:running;
+    }
+
+    .art-label{
+      position:absolute;
+      z-index:2;
+      left:34px;
+      bottom:32px;
+      max-width:430px;
+      color:var(--black);
+      font-size:clamp(38px,5.3vw,82px);
+      line-height:.9;
+      font-weight:200;
+      letter-spacing:-.05em;
+    }
+
+    .section-shell{
+      width:min(calc(100% - 48px),var(--max));
+      margin:auto;
+    }
+
+    .section-head{
+      display:grid;
+      grid-template-columns:220px 1fr;
+      gap:44px;
+      padding:110px 0 50px;
+      border-top:1px solid var(--line);
+    }
+
+    .section-index{
+      color:var(--rose);
+      font-size:12px;
+      letter-spacing:.15em;
+      text-transform:uppercase;
+    }
+
+    .section-title{
+      margin:0;
+      font-size:clamp(48px,7vw,102px);
+      font-weight:200;
+      line-height:.92;
+      letter-spacing:-.05em;
+    }
+
+    .about{
+      padding-bottom:120px;
+      background:var(--paper);
+    }
+
+    .about-grid{
+      display:grid;
+      grid-template-columns:220px minmax(0,1fr) minmax(280px,.72fr);
+      gap:44px;
+      align-items:start;
+    }
+
+    .about-label{
+      color:var(--rose);
+      font-size:12px;
+      line-height:1.5;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+    }
+
+    .about-main{
+      font-size:clamp(29px,4vw,58px);
+      line-height:1.08;
+      font-weight:200;
+      letter-spacing:-.035em;
+    }
+
+    .about-main p{
+      margin:0;
+    }
+
+    .about-side{
+      padding-top:4px;
+    }
+
+    .about-side p{
+      margin:0 0 22px;
+      color:var(--gray);
+      font-size:16px;
+      line-height:1.65;
+    }
+
+    .about-list{
+      margin-top:36px;
+      border-top:1px solid var(--line);
+    }
+
+    .about-row{
+      display:grid;
+      grid-template-columns:120px 1fr;
+      gap:18px;
+      padding:15px 0;
+      border-bottom:1px solid var(--line);
+      font-size:13px;
+    }
+
+    .about-row span:first-child{
+      color:var(--rose);
+      text-transform:uppercase;
+      letter-spacing:.08em;
+    }
+
+    .portfolio{
+      padding-bottom:130px;
+      background:var(--white);
+    }
+
+    .project-list{
+      display:flex;
+      flex-direction:column;
+      gap:110px;
+    }
+
+    .project-item{
+      padding-top:42px;
+      border-top:1px solid var(--line);
+    }
+
+    .project-grid{
+      display:grid;
+      grid-template-columns:minmax(0,1.42fr) minmax(320px,.58fr);
+      gap:44px;
+      align-items:start;
+    }
+
+    .project-image{
+      position:relative;
+      aspect-ratio:16/10;
+      overflow:hidden;
+      background:var(--lavender);
+    }
+
+    .project-image::before{
+      content:"";
+      position:absolute;
+      width:66%;
+      height:140%;
+      left:8%;
+      top:-30%;
+      border:1px solid rgba(44,44,52,.28);
+      transform:rotate(21deg);
+    }
+
+    .project-image::after{
+      content:"";
+      position:absolute;
+      width:38%;
+      height:84%;
+      right:7%;
+      bottom:-20%;
+      background:var(--violet);
+      transform:rotate(-17deg);
+    }
+
+    .project-image.alt-2{background:var(--rose)}
+    .project-image.alt-2::after{background:var(--lavender)}
+    .project-image.alt-3{background:var(--gray)}
+    .project-image.alt-3::before{border-color:rgba(216,216,246,.35)}
+    .project-image.alt-3::after{background:var(--violet)}
+    .project-image.alt-4{background:var(--black)}
+    .project-image.alt-4::before{border-color:rgba(255,255,255,.22)}
+    .project-image.alt-4::after{background:var(--rose)}
+
+    .placeholder-label{
+      position:absolute;
+      z-index:2;
+      left:24px;
+      bottom:22px;
+      padding:9px 12px;
+      background:rgba(247,246,244,.86);
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.09em;
+    }
+
+    .project-copy{
+      min-height:100%;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      padding:4px 0 0;
+    }
+
+    .project-number{
+      color:var(--rose);
+      font-size:12px;
+      letter-spacing:.15em;
+      text-transform:uppercase;
+    }
+
+    .project-copy h3{
+      margin:24px 0 24px;
+      font-size:clamp(38px,4.8vw,72px);
+      line-height:.98;
+      font-weight:200;
+      letter-spacing:-.045em;
+    }
+
+    .art-word{
+      display:block;
+      opacity:0;
+      transform:translateY(18px);
+      animation-duration:4.5s;
+      animation-timing-function:ease-out;
+      animation-iteration-count:infinite;
+      animation-play-state:paused;
+    }
+
+    .art-word:nth-child(1){animation-name:wordObserve;}
+    .art-word:nth-child(2){animation-name:wordQuestion;}
+    .art-word:nth-child(3){animation-name:wordDesign;}
+
+    @keyframes mapObserve{
+      0%,29%{opacity:1}
+      34%,95%{opacity:0}
+      100%{opacity:1}
+    }
+
+    @keyframes mapQuestion{
+      0%,29%{opacity:0}
+      34%,62%{opacity:1}
+      67%,100%{opacity:0}
+    }
+
+    @keyframes mapDesign{
+      0%,62%{opacity:0}
+      67%,95%{opacity:1}
+      100%{opacity:0}
+    }
+
+    @keyframes wordObserve{
+      0%{opacity:0;transform:translateY(18px)}
+      5%,95%{opacity:1;transform:translateY(0)}
+      100%{opacity:0;transform:translateY(-6px)}
+    }
+
+    @keyframes wordQuestion{
+      0%,32%{opacity:0;transform:translateY(18px)}
+      38%,95%{opacity:1;transform:translateY(0)}
+      100%{opacity:0;transform:translateY(-6px)}
+    }
+
+    @keyframes wordDesign{
+      0%,65%{opacity:0;transform:translateY(18px)}
+      71%,95%{opacity:1;transform:translateY(0)}
+      100%{opacity:0;transform:translateY(-6px)}
+    }
+
+    @media(prefers-reduced-motion:reduce){
+      .hero-map-layer,.art-word{animation:none}
+      .hero-map-design{opacity:1;transform:scale(1.18)}
+      .art-word{opacity:1;transform:none}
+    }
+
+    .project-copy p{
+      margin:0 0 22px;
+      color:var(--gray);
+      font-size:16px;
+      line-height:1.65;
+    }
+
+    .project-meta{
+      margin-top:40px;
+      border-top:1px solid var(--line);
+    }
+
+    .meta-row{
+      display:flex;
+      justify-content:space-between;
+      gap:24px;
+      padding:13px 0;
+      border-bottom:1px solid var(--line);
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.06em;
+    }
+
+    .meta-row span:first-child{color:var(--rose)}
+
+
+    .project-group{
+      margin-bottom:90px;
+    }
+
+    .project-group-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
+      gap:24px;
+      margin-bottom:24px;
+      padding-bottom:14px;
+      border-bottom:1px solid var(--line);
+    }
+
+    .project-group-head h3{
+      margin:0;
+      font-size:26px;
+      font-weight:400;
+      letter-spacing:-.025em;
+    }
+
+    .project-group-head span{
+      color:var(--rose);
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+    }
+
+    .project-card-grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:24px;
+    }
+
+    .project-card{
+      display:block;
+      border-top:none;
+      padding-top:0;
+      transition:transform .3s ease;
+    }
+
+    .project-card:hover{
+      transform:translateY(-5px);
+    }
+
+    .project-card-image{
+      position:relative;
+      aspect-ratio:4/3;
+      overflow:hidden;
+      margin-bottom:18px;
+      background:var(--lavender);
+    }
+
+    .project-card-image::before{
+      content:none;
+    }
+
+    .project-card-image::after{
+      content:"";
+      position:absolute;
+      width:34%;
+      height:74%;
+      right:8%;
+      bottom:-14%;
+      background:var(--violet);
+      transform:rotate(-13deg);
+    }
+
+    .project-card-image.has-image::after{
+      content:none;
+    }
+
+    .project-card-image.has-image img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .project-card-image span{
+      position:absolute;
+      z-index:2;
+      left:14px;
+      bottom:12px;
+      padding:6px 8px;
+      background:rgba(247,246,244,.88);
+      font-size:10px;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+    }
+
+    .tone-2{background:var(--rose)}
+    .tone-2::after{background:var(--lavender)}
+    .tone-3{background:var(--gray)}
+    .tone-3::before{border-color:rgba(255,255,255,.22)}
+    .tone-4{background:var(--black)}
+    .tone-4::before{border-color:rgba(255,255,255,.22)}
+    .tone-4::after{background:var(--rose)}
+    .tone-5{background:var(--violet)}
+    .tone-5::after{background:var(--gray)}
+    .tone-6{background:var(--lavender)}
+    .tone-6::after{background:var(--black)}
+
+    .project-card-kicker{
+      color:var(--rose);
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+    }
+
+    .project-card-copy h4{
+      margin:10px 0 9px;
+      font-size:28px;
+      font-weight:300;
+      line-height:1.05;
+      letter-spacing:-.035em;
+    }
+
+    .project-card-copy p{
+      margin:0 0 18px;
+      color:var(--gray);
+      font-size:13px;
+      line-height:1.5;
+    }
+
+    .project-card-link{
+      display:inline-block;
+      padding-bottom:4px;
+      border-bottom:1px solid var(--line);
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.09em;
+    }
+
+    .gallery{
+      padding:0 0 130px;
+      background:var(--paper);
+    }
+
+    .gallery-grid{
+      display:grid;
+      grid-template-columns:repeat(12,minmax(0,1fr));
+      grid-auto-rows:54px;
+      grid-auto-flow:dense;
+      gap:10px;
+    }
+
+    .gallery-item{
+      position:relative;
+      overflow:hidden;
+      margin:0;
+      background:var(--lavender);
+      cursor:zoom-in;
+      user-select:none;
+      -webkit-user-select:none;
+      -webkit-touch-callout:none;
+    }
+
+    .gallery-item img{
+      width:100%;
+      height:100%;
+      display:block;
+      object-fit:cover;
+      transition:transform .45s ease;
+      pointer-events:none;
+    }
+
+    .gallery-item:hover img{
+      transform:scale(1.025);
+    }
+
+    .gallery-lightbox{
+      position:fixed;
+      inset:0;
+      z-index:100;
+      display:none;
+      place-items:center;
+      padding:28px;
+      background:rgba(24,24,29,.88);
+      backdrop-filter:blur(8px);
+    }
+
+    .gallery-lightbox.is-open{
+      display:grid;
+    }
+
+    .gallery-lightbox-image{
+      display:block;
+      width:auto;
+      height:auto;
+      max-width:92vw;
+      max-height:90vh;
+      object-fit:contain;
+      box-shadow:0 20px 65px rgba(0,0,0,.38);
+    }
+
+    .gallery-lightbox-close{
+      position:absolute;
+      top:20px;
+      right:24px;
+      width:42px;
+      height:42px;
+      padding:0;
+      border:1px solid rgba(255,255,255,.55);
+      border-radius:50%;
+      background:rgba(0,0,0,.2);
+      color:#fff;
+      font:300 28px/1 "Inter",sans-serif;
+      cursor:pointer;
+    }
+
+    .gallery-item:nth-child(1){grid-column:span 3;grid-row:span 6;background:var(--lavender);}
+    .gallery-item:nth-child(2){grid-column:span 4;grid-row:span 4;background:var(--rose);}
+    .gallery-item:nth-child(3){grid-column:span 2;grid-row:span 5;background:var(--gray);}
+    .gallery-item:nth-child(4){grid-column:span 3;grid-row:span 4;background:var(--violet);}
+    .gallery-item:nth-child(5){grid-column:span 2;grid-row:span 5;background:var(--black);}
+    .gallery-item:nth-child(6){grid-column:span 5;grid-row:span 4;background:var(--lavender);}
+    .gallery-item:nth-child(7){grid-column:span 3;grid-row:span 5;background:var(--rose);}
+    .gallery-item:nth-child(8){grid-column:span 2;grid-row:span 4;background:var(--gray);}
+    .gallery-item:nth-child(9){grid-column:span 4;grid-row:span 5;background:var(--violet);}
+    .gallery-item:nth-child(10){grid-column:span 3;grid-row:span 6;background:var(--black);}
+    .gallery-item:nth-child(11){grid-column:span 2;grid-row:span 4;background:var(--lavender);}
+    .gallery-item:nth-child(12){grid-column:span 5;grid-row:span 4;background:var(--rose);}
+
+    .gallery-item:nth-child(1) img,
+    .gallery-item:nth-child(3) img,
+    .gallery-item:nth-child(5) img,
+    .gallery-item:nth-child(10) img,
+    .gallery-item:nth-child(12) img{object-position:center center;}
+
+    .gallery-item:nth-child(6) img,
+    .gallery-item:nth-child(9) img{object-position:center 62%;}
+
+    .gallery-item:nth-child(4) img{object-position:center 54%;}
+
+    .gallery-item:nth-child(12) img{object-position:center 56%;}
+
+    .gallery-item::before{
+      content:none;
+    }
+
+    .gallery-item:nth-child(3)::before,
+    .gallery-item:nth-child(5)::before,
+    .gallery-item:nth-child(8)::before,
+    .gallery-item:nth-child(10)::before{
+      border-color:rgba(255,255,255,.22);
+    }
+
+    .gallery-caption{
+      position:absolute;
+      left:10px;
+      bottom:10px;
+      z-index:2;
+      padding:5px 7px;
+      background:rgba(247,246,244,.9);
+      font-size:9px;
+      line-height:1.35;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+    }
+
+    .reflection{
+      padding:110px 0 0;
+      background:transparent;
+    }
+
+    .reflection-grid{
+      display:grid;
+      grid-template-columns:220px minmax(0,1fr);
+      gap:44px;
+      align-items:start;
+    }
+
+    .reflection-question{
+      color:var(--rose);
+      font-size:12px;
+      line-height:1.5;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+    }
+
+    .reflection-copy{
+      max-width:980px;
+      font-size:clamp(30px,4.3vw,62px);
+      line-height:1.08;
+      font-weight:300;
+      letter-spacing:-.04em;
+    }
+
+    .reflection-copy p{
+      margin:0 0 34px;
+    }
+
+    .reflection-copy small{
+      display:block;
+      max-width:720px;
+      color:var(--gray);
+      font-size:16px;
+      line-height:1.65;
+      letter-spacing:0;
+      font-weight:400;
+    }
+
+    footer{
+      padding:44px 24px;
+      color:var(--lavender);
+      background:var(--black);
+    }
+
+    .footer-inner{
+      width:min(100%,var(--max));
+      margin:auto;
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
+      gap:30px;
+    }
+
+    .footer-title{
+      font-size:clamp(24px,2.8vw,38px);
+      font-weight:200;
+      line-height:1.08;
+      letter-spacing:-.025em;
+    }
+
+    .footer-title span{
+      display:block;
+      margin-top:7px;
+      font-size:clamp(13px,1.25vw,18px);
+      line-height:1.35;
+      letter-spacing:.01em;
+    }
+
+    .footer-meta{
+      text-align:right;
+      color:rgba(216,216,246,.72);
+      font-size:12px;
+      line-height:1.7;
+      text-transform:uppercase;
+      letter-spacing:.09em;
+    }
+
+    .reveal{
+      opacity:0;
+      transform:translateY(26px);
+      transition:opacity .8s ease,transform .8s ease;
+    }
+
+    .reveal.visible{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    @media (max-width:980px){
+      .hero-inner,
+      .project-grid{
+        grid-template-columns:1fr;
+      }
+
+      .hero-intro{
+        max-width:620px;
+      }
+
+      .section-head{
+        grid-template-columns:130px 1fr;
+      }
+
+      .about-grid{
+        grid-template-columns:130px 1fr;
+      }
+
+      .about-side{
+        grid-column:2;
+      }
+
+      .project-copy{
+        min-height:auto;
+      }
+    }
+
+    @media (max-width:680px){
+      .header-inner{
+        width:calc(100% - 32px);
+        height:66px;
+      }
+
+      .nav{
+        gap:17px;
+      }
+
+      .nav a{
+        font-size:12px;
+      }
+
+      .wordmark strong{
+        font-size:13px;
+      }
+
+      .wordmark span{
+        display:none;
+      }
+
+      .hero{
+        padding:118px 16px 54px;
+      }
+
+      .hero-inner{
+        gap:34px;
+      }
+
+      .hero h1{
+        font-size:clamp(56px,18vw,94px);
+      }
+
+      .hero-visual{
+        margin-top:48px;
+      }
+
+      .hero-art{
+        min-height:360px;
+        background-position:68% center;
+      }
+
+      .art-label{
+        left:22px;
+        bottom:24px;
+      }
+
+      .section-shell{
+        width:calc(100% - 32px);
+      }
+
+      .section-head,
+      .about-grid{
+        grid-template-columns:1fr;
+        gap:20px;
+      }
+
+      .about-side{
+        grid-column:auto;
+      }
+
+      .section-head{
+        padding-top:82px;
+      }
+
+      .project-grid{
+        gap:28px;
+      }
+
+      .project-list{
+        gap:78px;
+      }
+
+      .about-row{
+        grid-template-columns:95px 1fr;
+      }
+
+      .carousel-controls{
+        grid-template-columns:1fr;
+      }
+
+      .control-line{
+        display:none;
+      }
+
+      .project-card-grid{
+        grid-template-columns:1fr;
+      }
+
+      .project-group{
+        margin-bottom:68px;
+      }
+
+      .gallery-grid{
+        grid-template-columns:repeat(6,minmax(0,1fr));
+        grid-auto-rows:42px;
+        gap:8px;
+      }
+
+      .gallery-item:nth-child(1){grid-column:span 4;grid-row:span 4;}
+      .gallery-item:nth-child(2){grid-column:span 2;grid-row:span 3;}
+      .gallery-item:nth-child(3){grid-column:span 2;grid-row:span 3;}
+      .gallery-item:nth-child(4){grid-column:span 3;grid-row:span 3;}
+      .gallery-item:nth-child(5){grid-column:span 3;grid-row:span 4;}
+      .gallery-item:nth-child(6){grid-column:span 3;grid-row:span 3;}
+      .gallery-item:nth-child(7){grid-column:span 3;grid-row:span 4;}
+      .gallery-item:nth-child(8){grid-column:span 2;grid-row:span 3;}
+      .gallery-item:nth-child(9){grid-column:span 4;grid-row:span 3;}
+      .gallery-item:nth-child(10){grid-column:span 4;grid-row:span 4;}
+      .gallery-item:nth-child(11){grid-column:span 2;grid-row:span 3;}
+      .gallery-item:nth-child(12){grid-column:span 4;grid-row:span 3;}
+
+      .reflection-grid{
+        grid-template-columns:1fr;
+        gap:24px;
+      }
+
+      .footer-inner{
+        align-items:flex-start;
+        flex-direction:column;
+      }
+
+      .footer-meta{
+        text-align:left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="wordmark" href="#home">
+        <strong>AHYUN HWANG</strong>
+        <span>Columbia GSAPP · MS Architecture and Urban Design</span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a class="active" href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#portfolio">Projects</a>
+        <a href="#gallery">Gallery</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-inner">
+        <div class="reveal">
+          <p class="eyebrow">Summer Semester</p>
+          <h1>Experiencing<br><span class="hero-city-line">New York City</span><br>Beyond<br>Buildings</h1>
+        </div>
+
+        <div class="hero-intro reveal">
+          <p>Exploring urban environments through mapping, observation, and storytelling.</p>
+          <a class="quiet-link" href="#portfolio">View selected works <span>↓</span></a>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal">
+        <div class="hero-art">
+          <img class="hero-map-layer hero-map-observe" src="images/hero-map-observe.jpg" alt="Pedestrian demand across New York City">
+          <img class="hero-map-layer hero-map-question" src="images/hero-map-question.jpg" alt="Three-dimensional contour analysis across New York City">
+          <img class="hero-map-layer hero-map-design" src="images/hero-map-design.jpg" alt="Stormwater flood risk across New York City">
+          <div class="hero-map-shade"></div>
+          <div class="art-label"><span class="art-word">Observe.</span><span class="art-word">Question.</span><span class="art-word">Design.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="section-shell">
+        <div class="section-head reveal">
+          <div class="section-index">01 · About</div>
+          <h2 class="section-title">Positioning myself within urban design.</h2>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-label reveal">Profile<br>Approach<br>Interests</div>
+
+          <div class="about-main reveal">
+            <p>I am an emerging urban designer interested in everyday users, overlooked spaces, and the relationship between physical form and social life.</p>
+          </div>
+
+          <div class="about-side reveal">
+            <p>My background is in architectural design. Through urban-scale research, I have begun to think beyond individual buildings and consider how infrastructure, public space, and long-term decisions shape daily life for many different people.</p>
+            <p>This portfolio brings together selected work from the Summer semester of the MS Architecture and Urban Design program at Columbia GSAPP, including mapping, field observation, visual storytelling, and collaborative studio projects.</p>
+
+            <div class="about-list">
+              <div class="about-row"><span>Focus</span><span>Everyday life and inclusive urban environments</span></div>
+              <div class="about-row"><span>Methods</span><span>GIS, mapping, photography, animation, narrative</span></div>
+              <div class="about-row"><span>Program</span><span>MS Architecture and Urban Design · Columbia GSAPP</span></div>
+              <div class="about-row"><span>Semester</span><span>Summer 2026</span></div>
+              <div class="about-row"><span>Sites</span><span>Greenwich Village, Hudson Square, Tribeca, Soho</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="portfolio" id="portfolio">
+      <div class="section-shell">
+        <div class="section-head reveal">
+          <div class="section-index">02 · Projects</div>
+          <h2 class="section-title">Selected works from the Summer semester.</h2>
+        </div>
+
+        <div class="project-group reveal">
+          <div class="project-group-head">
+            <h3>Urban Design Studio Projects</h3>
+            <span>03 Projects</span>
+          </div>
+
+          <div class="project-card-grid">
+            <a class="project-card" href="projects/studio-01.html">
+              <div class="project-card-image tone-1 has-image">
+                <img src="images/studio-01-past-final.jpg" alt="Urban transect project displayed on a studio wall">
+              </div>
+              <div class="project-card-copy">
+                <div class="project-card-kicker">Studio 01</div>
+                <h4>Constructing the Past</h4>
+                <p>Reading historical layers embedded in today's city.</p>
+                <span class="project-card-link">View Project →</span>
+              </div>
+            </a>
+
+            <a class="project-card" href="projects/studio-02.html">
+              <div class="project-card-image tone-2 has-image">
+                <img src="images/studio-02-present.png" alt="Student publications displayed on grass during an outdoor presentation">
+              </div>
+              <div class="project-card-copy">
+                <div class="project-card-kicker">Studio 02</div>
+                <h4>The Standing Now of the Present</h4>
+                <p>Observing everyday urban life across multiple scales.</p>
+                <span class="project-card-link">View Project →</span>
+              </div>
+            </a>
+
+            <a class="project-card" href="projects/studio-03.html">
+              <div class="project-card-image tone-3 has-image">
+                <img src="images/studio-03-future.jpg" alt="Participatory urban futures board game arranged on a table">
+              </div>
+              <div class="project-card-copy">
+                <div class="project-card-kicker">Studio 03</div>
+                <h4>Plural Futures</h4>
+                <p>Speculating on future urban scenarios.</p>
+                <span class="project-card-link">View Project →</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="project-group reveal">
+          <div class="project-group-head">
+            <h3>Digital Techniques Projects</h3>
+            <span>03 Projects</span>
+          </div>
+
+          <div class="project-card-grid">
+            <a class="project-card" href="projects/dteq-01.html">
+              <div class="project-card-image tone-4 has-image">
+                <img src="images/dteq-01-thumbnail.jpg" alt="Public open space gaps mapping across New York City" style="object-position:left top">
+              </div>
+              <div class="project-card-copy">
+                <div class="project-card-kicker">DTEQ 01</div>
+                <h4>Public Open Space Gaps in NYC</h4>
+                <p>Identifying Gaps in Public Open Space Access</p>
+                <span class="project-card-link">View Project →</span>
+              </div>
+            </a>
+
+            <a class="project-card" href="projects/dteq-02.html">
+              <div class="project-card-image tone-5 has-image">
+                <img src="images/dteq-02-thumbnail.jpg" alt="Everyday play infrastructure analysis in Hudson Square" style="object-position:left top">
+              </div>
+              <div class="project-card-copy">
+                <div class="project-card-kicker">DTEQ 02</div>
+                <h4>Everyday Play Infrastructure in Hudson Square</h4>
+                <p>Exploring Child-Scale Access to Care, Play, and Open Space</p>
+                <span class="project-card-link">View Project →</span>
+              </div>
+            </a>
+
+            <a class="project-card" href="projects/dteq-03.html">
+              <div class="project-card-image tone-6 has-image">
+                <img src="images/dteq-03-thumbnail.jpg" alt="Adaptive reuse of an industrial building as a technology office in Hudson Square">
+              </div>
+              <div class="project-card-copy">
+                <div class="project-card-kicker">DTEQ 03</div>
+                <h4>Hudson Square: Urban Transformation</h4>
+                <p>Tracing Urban Change through History and Lived Experience</p>
+                <span class="project-card-link">View Project →</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="reflection" id="reflection">
+          <div class="section-head reveal">
+            <div class="section-index">Reflection</div>
+            <h2 class="section-title">Questions I carry forward.</h2>
+          </div>
+
+          <div class="reflection-grid">
+            <div class="reflection-question reveal">Next semester<br>Future inquiry</div>
+            <div class="reflection-copy reveal">
+              <p>How can urban design identify and address problems that are not immediately visible?</p>
+              <small>I want to keep asking how urban design can better support people who are often overlooked and how we can create more inclusive cities through careful observation, long-term thinking, and design.</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery" id="gallery">
+      <div class="section-shell">
+        <div class="section-head reveal">
+          <div class="section-index">03 · Gallery</div>
+          <h2 class="section-title">Observing New York City’s Public Spaces.</h2>
+        </div>
+
+        <div class="gallery-grid">
+          <figure class="gallery-item reveal"><img src="images/gallery-02.jpg" alt="Street corner and brick facade in Manhattan" loading="lazy"></figure>
+          <figure class="gallery-item reveal"><img src="images/gallery-06.jpg" alt="Bryant Park framed by Midtown towers" loading="lazy"></figure>
+          <figure class="gallery-item reveal"><img src="images/gallery-04.jpg" alt="Crowded Midtown sidewalk" loading="lazy"></figure>
+          <figure class="gallery-item reveal"><img src="images/gallery-09.jpg" alt="Public space beside the Richard Gilder Center in Manhattan" loading="lazy"></figure>
+          <figure class="gallery-item reveal"><img src="images/gallery-07.jpg" alt="Urban canyon and mixed building scales" loading="lazy"></figure>
+          <figure class="gallery-item reveal"><img src="images/gallery-08.jpg" alt="Public lawn at Lincoln Center" loading="lazy"></figure>
+          <figure class="gallery-item reveal"><img src="images/gallery-12.jpg" alt="Geometric canopy over a Manhattan public space" loading="lazy"></figure>
+          <figure class="gallery-item reveal"><img src="images/gallery-03.jpg" alt="Public life in Bryant Park" loading="lazy"></figure>
+          <figure class="gallery-item reveal"><img src="images/gallery-10.jpg" alt="People gathering beneath the trees in Bryant Park" loading="lazy"></figure>
+          <figure class="gallery-item reveal"><img src="images/gallery-11.jpg" alt="Museum of Modern Art courtyard" loading="lazy"></figure>
+          <figure class="gallery-item reveal"><img src="images/gallery-05.jpg" alt="Layered historic buildings and public street space" loading="lazy"></figure>
+          <figure class="gallery-item reveal"><img src="images/gallery-01.jpg" alt="Central Park reservoir and Manhattan skyline" loading="lazy"></figure>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="gallery-lightbox" role="dialog" aria-modal="true" aria-label="Expanded gallery image">
+    <button class="gallery-lightbox-close" type="button" aria-label="Close expanded image">×</button>
+    <img class="gallery-lightbox-image" src="" alt="">
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-title">AHYUN HWANG<br><span>Columbia GSAPP · MS Architecture and Urban Design</span></div>
+      <div class="footer-meta">MS Architecture and Urban Design<br>Summer Semester<br>New York City</div>
+    </div>
+  </footer>
+
+  <script>
+    const revealItems = document.querySelectorAll(".reveal");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {threshold:.13});
+
+    revealItems.forEach(item => observer.observe(item));
+
+    const navLinks = document.querySelectorAll(".nav a");
+    const sections = document.querySelectorAll("main section");
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          navLinks.forEach(link => {
+            link.classList.toggle("active", link.getAttribute("href") === `#${entry.target.id}`);
+          });
+        }
+      });
+    }, {rootMargin:"-42% 0px -52% 0px"});
+
+    sections.forEach(section => sectionObserver.observe(section));
+
+    const galleryLightbox = document.querySelector(".gallery-lightbox");
+    const galleryLightboxImage = document.querySelector(".gallery-lightbox-image");
+    const galleryLightboxClose = document.querySelector(".gallery-lightbox-close");
+    let lastGalleryItem = null;
+
+    const openGalleryImage = item => {
+      const image = item.querySelector("img");
+      lastGalleryItem = item;
+      galleryLightboxImage.src = image.src;
+      galleryLightboxImage.alt = image.alt;
+      galleryLightbox.classList.add("is-open");
+      document.body.style.overflow = "hidden";
+      galleryLightboxClose.focus();
+    };
+
+    const closeGalleryImage = () => {
+      galleryLightbox.classList.remove("is-open");
+      galleryLightboxImage.src = "";
+      document.body.style.overflow = "";
+      if(lastGalleryItem) lastGalleryItem.focus();
+    };
+
+    document.querySelectorAll(".gallery-item").forEach(item => {
+      const image = item.querySelector("img");
+      item.tabIndex = 0;
+      item.setAttribute("role", "button");
+      item.setAttribute("aria-label", `Enlarge ${image.alt}`);
+      image.draggable = false;
+      item.addEventListener("click", () => openGalleryImage(item));
+      item.addEventListener("contextmenu", event => event.preventDefault());
+      item.addEventListener("dragstart", event => event.preventDefault());
+      item.addEventListener("keydown", event => {
+        if(event.key === "Enter" || event.key === " "){
+          event.preventDefault();
+          openGalleryImage(item);
+        }
+      });
+    });
+
+    galleryLightboxClose.addEventListener("click", closeGalleryImage);
+    galleryLightboxImage.draggable = false;
+    galleryLightboxImage.addEventListener("contextmenu", event => event.preventDefault());
+    galleryLightboxImage.addEventListener("dragstart", event => event.preventDefault());
+    galleryLightbox.addEventListener("click", event => {
+      if(event.target === galleryLightbox) closeGalleryImage();
+    });
+    document.addEventListener("keydown", event => {
+      if(event.key === "Escape" && galleryLightbox.classList.contains("is-open")) closeGalleryImage();
+    });
+  </script>
+</body>
+</html>
